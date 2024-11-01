@@ -20,7 +20,6 @@ const Read = () => {
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error loading items</div>;
 
-  // Ensure data is an array
   const items = Array.isArray(data) ? data : [];
 
   return (

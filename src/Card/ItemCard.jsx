@@ -3,8 +3,8 @@ import Button from "@mui/material/Button";
 
 const ItemCard = ({ item, openUpdateDialog, handleDelete }) => (
   <div key={item.id} className="p-4 bg-white shadow-md rounded flex flex-col">
-    <h3 className="text-lg font-bold mb-2">{item.name}</h3>
-    <p className="text-sm mb-4">{item.email}</p>
+    <h3 className="text-lg font-bold mb-2 truncate">{item.name}</h3>
+    <p className="text-sm mb-4 truncate">{item.email}</p>
     <div className="flex flex-col space-y-2">
       <p>
         <strong>Age:</strong> {item.age}

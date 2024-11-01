@@ -30,14 +30,20 @@ const Update = ({ item }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="inline">
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2"
+    >
       <input
         type="text"
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        className="border p-1 mr-2 rounded"
-      />
-      <button type="submit" className="bg-green-500 text-white p-1 rounded">
+        className="border p-2 rounded w-full sm:w-auto"
+      />  
+      <button
+        type="submit"
+        className="bg-green-500 text-white p-2 rounded w-full sm:w-auto"
+      >
         Update
       </button>
     </form>

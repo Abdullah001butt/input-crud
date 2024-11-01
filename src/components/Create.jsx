@@ -139,26 +139,44 @@ const Create = () => {
     setPage(value);
   };
 
-  // Ensure items is an array
   const paginatedItems = Array.isArray(items)
     ? items.slice((page - 1) * itemsPerPage, page * itemsPerPage)
     : [];
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-gray-100">
+        <div className="text-center">
+          <div className="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12 mb-4"></div>
+          <h2 className="text-xl font-semibold text-gray-700">Loading...</h2>
+          <p className="text-gray-500">Please wait while we fetch the data.</p>
+        </div>
+      </div>
+    );
   }
 
   if (isError) {
-    return <div>Error loading items.</div>;
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-gray-100">
+        <div className="text-center">
+          <h2 className="text-xl font-semibold text-red-600">
+            Error loading items
+          </h2>
+          <p className="text-gray-500">
+            There was an error fetching the data. Please try again later.
+          </p>
+        </div>
+      </div>
+    );
   }
 
   return (
-    <div className="flex flex-col items-center min-h-screen bg-gray-100">
+    <div className="flex flex-col items-center min-h-screen bg-gray-100 p-4">
       <Button
         variant="contained"
         color="primary"
         onClick={openDialog}
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4"
       >
         Create
       </Button>
@@ -176,7 +194,7 @@ const Create = () => {
         title="Update Item"
       />
 
-      <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 w-full mt-4">
         {paginatedItems.map((item) => (
           <ItemCard
             key={item.id}
